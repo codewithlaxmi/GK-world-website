@@ -8,12 +8,12 @@
 
 <!--hearder  section start-->
 
-<section class="m-10  bg-gradient-to-br from-blue-700 to-slate-900 text-white flex items-center px-12 ">
+<section class="m-4 md:m-10  bg-gradient-to-br from-blue-700 to-slate-900 text-white flex  flex-col  md:flex-row items-center px-4 md:px-12 rounded-lg ">
 
     <!--left content-->
-    <div class="w-1/2">
+    <div class=" w-full md:w-1/2 md:text-left  md:mt-10 md:m-8">
 
-        <h1 class="text-5xl text-white font-bold ">
+        <h1 class=" text-3xl md:text-5xl text-white font-bold ">
             Learn GK.<br>
             Stay Curious.<br>
             <span class="text-sky-500 ">
@@ -22,13 +22,13 @@
             Every Day!
         </h1>
 
-        <p class="text-lg w-[520px] mt-3">
+        <p class="text-base md:text-lg w-full  md:w-[520px] mt-3">
             Best platform to learn General Knowledge
             with daily quizzes, amazing facts and
             exciting challenges.
         </p>
 
-        <div class=" gap-5">
+        <div class=" flex flex-col md:flex-row fap-4 mt-5">
             <button class="p-2 bg-gradient-to-br from-blue-600 to-purple-500 text-lg mt-4  rounded-lg  shadow-[3px_14px_13px_black] hover:scale-105 transition hover:shadow-sm ">Start Learning- </button>
             <button class="p-2  rounded-lg  ms-4  hover:border border-blue-400 hover:border-2">Explore Quiz </button>
         </div>
@@ -40,11 +40,11 @@
 
     <!--right side image-->
 
-    <div class="w-1/2">
+    <div class=" w-full md:w-1/2 mt-10 md:m-0">
 
         <img src="{{url_for('static',filename='images/heroimage.png')}}" 
              alt="hero image"
-             class="w-[700px]"
+             class=" w-full max-w-lg mx-auto"
         >
 
     </div>
@@ -67,7 +67,7 @@
         </a>
 
 
-        <div class="grid grid-cols-2  md:grid-cols-6 gap-8 mt-2">
+        <div class="grid grid-cols-1 sm:grid-cols-2   md:grid-cols-3 lg:grid-cols-6 gap-6 mt-6">
 
             {% for card in cards %}
             <div class="items-center   text-center text-white p-3 bg-slate-950/90 rounded-lg">
@@ -92,7 +92,7 @@
 
 <section class="m-10 ">
     <div class="bg-gradient-to-br from-blue-600 to-slate-800/20 p-4">
-        <div class="flex  justify-between gap-10 text-white  bg-black rounded-lg p-[20px_50px]">
+        <div class="flex flex-col lg:flex-row gap-10 text-white bg-black rounded-lg p-5 md:p-10">
 
             <div>
                 <h1 class="text-4xl font-bold">Daily Quiz Challenges.</h1>
@@ -102,7 +102,7 @@
                 </div>
                 <!--cards-->
 
-                <div class="grid grid-cols-1 md:grid-cols-4  gap-5 mt-10  ">
+                <div class="grid grid-cols-2 md:grid-cols-4  gap-5 mt-10  ">
                     {% for testCard in testCards%}
                     <div
                          {% if testCard.id %}
@@ -128,7 +128,7 @@
 
             <!--image-->
             <div class=" rounded-xl ">
-                <img src="{{url_for(('static'),filename="images/GK.png")}}">
+                <img src="{{url_for(('static'),filename="images/GK.png")}}" class="w-full max-w-md mx-auto">
             </div>
 
         </div>
@@ -157,7 +157,7 @@
     
        <div class="w-40 h-[2px] bg-gradient-to-r from-sky-400 to-purple-500 mx-auto mt-5"></div>
     <!--cards-->
-    <div class="grid grid-cols-4 gap-[100px] mt-16  ">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 lg:grid-cols-4 gap-8 mt-16  ">
 
         {% for whycard in whycards %}
         <div class="bg-slate-900/60 backdrop-blur-lg border border-slate-700 text-center text-white rounded-2xl p-6 {{whycard.background}}transition duration-100">
