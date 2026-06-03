@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!--header part-->
+
+<section class="m-10    ">
+
+    <div class=" flex items-center mt-20  ">
+
+        <!--left side for content-->
+        <div class="w-1/2">
+            <div class="flex justify-start mb-2">
+                <h1 class="rounded-full tracking-wider border border-purple-500 font-semibold text-purple-600 px-5 py-1" >  <i class="fa-solid fa-graduation-cap text-purple-600 "></i> Learn & Grow </h1>
+            </div>
+            <h1 class="text-6xl font-bold text-white ">Learn Today, </h1>
+            <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent font-bold  text-6xl ">Lead Tomorrow </span>
+
+            <p class="text-slate-400 text-lg mt-4"> Explore well-structured learning resources, important topics, <br>
+                and exam-focused content to strengthen you GK preparation </p>
+
+                <div class="grid grid-cols-1  md:grid-cols-3 gap-16 mt-5   ">
+                    {% for learnCard in learnCards %}
+
+                        <div class="flex items-center bg-gradient-to-br from-slate-600 to-purple-600/20  shadow-[1px_1px_6px] shadow-purple-500  p-3 rounded-lg hover:shadow-none ">
+                            <!--icon-->
+                            <div>
+                                <i class="{{learnCard.icon}} text-purple-400 text-3xl "></i>
+                            </div>
+                            <!--content-->
+                            <div class="ms-4">
+                                <h1 class="text-3xl text-white font-bold ">{{learnCard.number}}</h1>
+                                <p class="text-slate-400 font-semibold  ">{{learnCard.content}}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+        </div>
+
+        <!--right side for image-->
+
+        <img src={{url_for(('static'),filename='images/learn_img.png')}} class="w-[780px] h-[370px] me-10">
+
+    </div>
+                            
+</section>
+
+<div class=""></div>
+<!--section end-->
+
+<!--important heading-->
+
+    <div class=" flex justify-center mt-20 ">
+        <h1 class="text-white text-4xl font-semibold ">What You'll Learn </h1>
+    </div>
+
+     <p class="text-center text-slate-400   text-lg">High-quality content designed to help you understand, remember and apply</p>
+
+    <div class="w-48 mt-4 h-[2px] bg-gradient-to-r from-sky-400 to-purple-500 mx-auto  "></div>
+    
+
+    <!--next cards sections-->
+<section class="m-10">
+    <div class=" grid  grid-cols-1 md:grid-cols-3 gap-5">
+        {% for learnCard2 in learnCards2%}
+        <div class="flex items-center justify-center gap-5 bg-gradient-to-br from-slate-800 p-3 rounded-lg border border-slate-500">
+
+            <!--icon-->
+            <div>                
+                <i class="{{learnCard2.icon}} {{learnCard2.iconColor}} {{learnCard2.iconBG}} p-[10px_15px]  rounded-lg text-5xl {{learnCard2.iconBorder}}"></i>
+            </div>
+            <!--content-->
+            <div>
+                <h1 class="text-2xl font-semibold text-white">{{learnCard2.heading}}</h1>
+                <p class="text-slate-300 text-[16px]">{{learnCard2.content}}</p>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</section>
+
+
+
+<!--section end-->
+
+<!--start learning button-->
+<div class="flex justify-center">
+    <button class="bg-gradient-to-br from-blue-600 to-purple-800 p-[12px_15px] text-white shadow-purple-700 shadow-[1px_3px_20px] hover:scale-105 transition duration-200 hover:shadow-none  text-2xl rounded-lg "> Let's start learning- </button>
+</div>
+
+{% endblock %}

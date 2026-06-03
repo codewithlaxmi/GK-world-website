@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+   
+
+
+<!--hearder  section start-->
+
+<section class="m-10  bg-gradient-to-br from-blue-700 to-slate-900 text-white flex items-center px-12 ">
+
+    <!--left content-->
+    <div class="w-1/2">
+
+        <h1 class="text-5xl text-white font-bold ">
+            Learn GK.<br>
+            Stay Curious.<br>
+            <span class="text-sky-500 ">
+                Grow 
+            </span>
+            Every Day!
+        </h1>
+
+        <p class="text-lg w-[520px] mt-3">
+            Best platform to learn General Knowledge
+            with daily quizzes, amazing facts and
+            exciting challenges.
+        </p>
+
+        <div class=" gap-5">
+            <button class="p-2 bg-gradient-to-br from-blue-600 to-purple-500 text-lg mt-4  rounded-lg  shadow-[3px_14px_13px_black] hover:scale-105 transition hover:shadow-sm ">Start Learning- </button>
+            <button class="p-2  rounded-lg  ms-4  hover:border border-blue-400 hover:border-2">Explore Quiz </button>
+        </div>
+
+
+
+    </div>
+
+
+    <!--right side image-->
+
+    <div class="w-1/2">
+
+        <img src="{{url_for('static',filename='images/heroimage.png')}}" 
+             alt="hero image"
+             class="w-[700px]"
+        >
+
+    </div>
+
+
+
+</section>
+<!--section end-->
+
+
+<!--cards section start-->
+
+<section class="m-10">
+
+
+        <h1 class=" text-white text-4xl font-bold   text-center ">Explore Categories</h1>
+           <div class="w-40 h-[2px] bg-gradient-to-r from-sky-400 to-purple-500 mx-auto mt-5"></div>
+        <a href="/Categories">
+            <button class=" hover:border border-white px-1 rounded-[4px] block ml-auto text-white">View all-</button>
+        </a>
+
+
+        <div class="grid grid-cols-2  md:grid-cols-6 gap-8 mt-2">
+
+            {% for card in cards %}
+            <div class="items-center   text-center text-white p-3 bg-slate-950/90 rounded-lg">
+                <!--img-->
+              <img src="{{url_for('static',filename=card.img)}}"  class="w-[90%] h-[150px] overflow-hidden object-cover ms-3">
+                <!--title-->
+                <h1 class="text-xl font-semibold "> {{card.title}}   </h1>
+                <!--content-->
+                <p class="text-sm">{{card.content}}</p>
+                <!--records-->
+                <h2 class="{{card.recordColor}} text-sm font-bold">{{card.record}}</h2>
+            </div>
+
+            {% endfor%}
+        </div>
+
+
+</section>
+<!--card section end-->
+
+<!--- section ouiz test-->
+
+<section class="m-10 ">
+    <div class="bg-gradient-to-br from-blue-600 to-slate-800/20 p-4">
+        <div class="flex  justify-between gap-10 text-white  bg-black rounded-lg p-[20px_50px]">
+
+            <div>
+                <h1 class="text-4xl font-bold">Daily Quiz Challenges.</h1>
+                <div class="flex mt-2 ">
+                    <i class="fa-regular fa-calendar text-sky-400 text-2xl"></i>
+                    <p class="m-1 ">Test your Knowledge with today Quiz</p>
+                </div>
+                <!--cards-->
+
+                <div class="grid grid-cols-1 md:grid-cols-4  gap-5 mt-10  ">
+                    {% for testCard in testCards%}
+                    <div
+                         {% if testCard.id %}
+
+                         id="{{testCard.id}}"
+
+                         {% endif %}
+                     class="{{testCard.background}} text-center p-2 rounded-lg hover:scale-110 transition duration-100">
+                        <h1 class="font-bold text-3xl ">{{testCard.number}}</h1>
+                        <p class="text-lg font-semibold">{{testCard.content}}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+
+
+                <button class="bg-gradient-to-br from-blue-400 to-purple-600 rounded-lg p-[9px_30px] mt-10 text-xl hover:shadow-none hover:bg-none hover:border border-blue-400  hover:scale-105 transition duration-100"> Start Quiz now-</button>
+
+            </div>
+
+
+
+
+
+            <!--image-->
+            <div class=" rounded-xl ">
+                <img src="{{url_for(('static'),filename="images/GK.png")}}">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--section end-->
+
+
+<!--FQA section start-->
+<section class="m-10 ">
+   <div class="flex justify-center">
+         <h1 class="border border-purple-500 text-purple-400 rounded-full px-6 py-2 font-semibold tracking-wider">
+             WHY CHOOSE US
+         </h1>
+    </div>
+    
+    <div>
+        <h1 class="text-5xl mt-3 text-white font-bold flex justify-center">
+             Why Choose<span class="bg-gradient-to-r from-blue-400 to-purple-500 ms-2 bg-clip-text text-transparent">  GK World?
+            </span>
+        </h1>
+
+        <p class=" text-white text-lg mt-4 text-center">Everything you need to learn, <br> practice and master General Knowledge in one place.</p>
+    </div>
+    
+       <div class="w-40 h-[2px] bg-gradient-to-r from-sky-400 to-purple-500 mx-auto mt-5"></div>
+    <!--cards-->
+    <div class="grid grid-cols-4 gap-[100px] mt-16  ">
+
+        {% for whycard in whycards %}
+        <div class="bg-slate-900/60 backdrop-blur-lg border border-slate-700 text-center text-white rounded-2xl p-6 {{whycard.background}}transition duration-100">
+            <!--for icon-->
+            <div class="h-32 w-32 rounded-full flex items-center justify-center mx-auto {{whycard.iconColor}} {{whycard.iconborder}} " >
+                <i class="{{whycard.icon}} text-white  text-6xl"></i>
+            </div>
+            <!--for heading-->
+            <h1 class="font-bold text-xl {{whycard.headingColor}}">
+                {{whycard.title}}
+            </h1>
+            <!--line-->
+               <div class="w-20 h-[2px] bg-gradient-to-r from-sky-400 to-purple-500 mx-auto mt-5"></div>
+
+            <!--content-->
+            <p class=" text-start text-justify">{{whycard.content}}</p>
+        </div>
+
+        {% endfor %}
+    </div>
+
+
+</section>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
